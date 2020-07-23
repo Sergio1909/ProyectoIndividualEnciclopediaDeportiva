@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "422079701765",
+    "firebase_url": "https://enciclopedia-deportiva-3cf78.firebaseio.com",
+    "project_id": "enciclopedia-deportiva-3cf78",
+    "storage_bucket": "enciclopedia-deportiva-3cf78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422079701765:android:815b85ea9ec95a6f5e4d6c",
+        "android_client_info": {
+          "package_name": "com.example.enciclopediadeportiva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422079701765-k420tkql0fie1flqievpj2g901l52ki9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuvU0NLex45PQHueoIhOs1JHSXSEsyw9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422079701765-k420tkql0fie1flqievpj2g901l52ki9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
