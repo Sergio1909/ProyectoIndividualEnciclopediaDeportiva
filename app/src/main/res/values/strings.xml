@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EnciclopediaDeportiva</string>
+    <string name="bienvenido_a_la_enciclopedia_deportiva">Bienvenido al aplicativo de la enciclopedia deportiva olimpica</string>
+    <string name="registro">Registro</string>
 </resources>
