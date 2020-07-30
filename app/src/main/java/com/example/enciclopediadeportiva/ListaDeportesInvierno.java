@@ -6,7 +6,6 @@ package com.example.enciclopediadeportiva;
         import androidx.recyclerview.widget.RecyclerView;
 
         import android.os.Bundle;
-        import android.widget.ImageView;
         import android.widget.Toast;
 
         import com.example.enciclopediadeportiva.Entidades.DeporteDto;
@@ -18,11 +17,8 @@ package com.example.enciclopediadeportiva;
         import com.google.firebase.database.ValueEventListener;
         import com.google.firebase.storage.FirebaseStorage;
         import com.google.firebase.storage.StorageReference;
-        import com.squareup.picasso.Picasso;
 
-        import static com.example.enciclopediadeportiva.R.id.foto_deporte;
-
-public class listaDeportes extends AppCompatActivity {
+public class ListaDeportesInvierno extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     DeporteDto[] listaDeportes;
@@ -33,7 +29,7 @@ public class listaDeportes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_deportes);
+        setContentView(R.layout.activity_lista_deportes_invierno);
         mAuth = FirebaseAuth.getInstance();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("DEPORTE").child("INVIERNO").addValueEventListener(new ValueEventListener() {
@@ -52,11 +48,11 @@ public class listaDeportes extends AppCompatActivity {
                             final String nombreRaroDeporte = children.getKey();  deporte.setApiKey(nombreRaroDeporte);
                             //final String foto = dataSnapshot.child("foto").getValue().toString(); deporte.setFoto(foto);
                             final StorageReference fStorage = FirebaseStorage.getInstance().getReference();
-                            final ListaDeportesAdapter deportesAdapter = new ListaDeportesAdapter(listaDeportes, listaDeportes.this,fStorage);
+                            final ListaDeportesAdapter deportesAdapter = new ListaDeportesAdapter(listaDeportes, ListaDeportesInvierno.this,fStorage);
 
                             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
                             recyclerView.setAdapter(deportesAdapter);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(listaDeportes.this));
+                            recyclerView.setLayoutManager(new LinearLayoutManager(ListaDeportesInvierno.this));
                             listaDeportes[contador] = deporte;
                             contador++;
 
@@ -74,7 +70,7 @@ public class listaDeportes extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(listaDeportes.this,"Error Base de Datos",Toast.LENGTH_LONG).show();
+                Toast.makeText(ListaDeportesInvierno.this,"Error Base de Datos",Toast.LENGTH_LONG).show();
             }
         });
     }
