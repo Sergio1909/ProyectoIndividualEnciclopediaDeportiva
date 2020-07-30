@@ -77,4 +77,5 @@ public class ListaDeportesAdapter extends RecyclerView.Adapter<ListaDeportesAdap
     public int getItemCount() {
         return listaDeportes.length;
     }
+
 }
