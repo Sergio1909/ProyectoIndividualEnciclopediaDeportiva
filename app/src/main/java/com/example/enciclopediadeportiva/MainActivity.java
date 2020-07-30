@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 //Detectar rol
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();
-                Intent intent = new Intent(this, listaDeportes.class);
+                Intent intent = new Intent(this, ListaDeportesVerano.class);
                 startActivity(intent);
 
                 };
