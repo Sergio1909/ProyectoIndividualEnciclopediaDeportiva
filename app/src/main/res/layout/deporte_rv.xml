@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rv_deporte"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -13,38 +13,52 @@
         android:id="@+id/foto_deporte"
         android:layout_width="160dp"
         android:layout_height="152dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/nombre_deporte"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/nombre_deporte"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginStart="44dp"
         android:text="TextView"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="120dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="107dp"
-        android:text="DEPORTE"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/foto_deporte"
-        app:layout_constraintHorizontal_bias="0.35"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="40dp"
+        android:text="INFO"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nombre_deporte" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:text="SEGUIR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/foto_deporte"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_deporte"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
