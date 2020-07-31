@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".DetallesDeporteVerano">
+
+    <TextView
+        android:id="@+id/nombre_deporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/fotoDetalles"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fotoDetalles"
+        android:layout_width="99dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/descripcion"
+        android:layout_width="178dp"
+        android:layout_height="380dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toEndOf="@+id/foto2"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <ImageView
+        android:id="@+id/foto1"
+        android:layout_width="185dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="53dp"
+        app:layout_constraintEnd_toStartOf="@+id/descripcion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_deporte"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/foto2"
+        android:layout_width="185dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto1"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/buttonRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGRESAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="40dp"
+        android:text="FOTOS"
+        app:layout_constraintBottom_toTopOf="@+id/foto1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="DESCRIPCION "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/foto1"
+        app:layout_constraintTop_toBottomOf="@+id/fotoDetalles" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

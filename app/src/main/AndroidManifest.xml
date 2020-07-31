@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_olympic_games_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListaDeportesVerano"></activity>
+        <activity android:name=".DetallesDeporteInvierno"></activity>
+        <activity android:name=".DetallesDeporteVerano" />
+        <activity android:name=".ListaDeportesVerano" />
         <activity android:name=".ListaDeportesInvierno" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".MainActivity">

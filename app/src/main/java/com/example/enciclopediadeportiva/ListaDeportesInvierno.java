@@ -6,6 +6,7 @@ package com.example.enciclopediadeportiva;
         import androidx.recyclerview.widget.RecyclerView;
 
         import android.os.Bundle;
+        import android.view.Menu;
         import android.widget.Toast;
 
         import com.example.enciclopediadeportiva.Entidades.DeporteDto;
@@ -24,6 +25,8 @@ public class ListaDeportesInvierno extends AppCompatActivity {
     DeporteDto[] listaDeportes;
     private StorageReference storageReference;
     private FirebaseStorage fStorage;
+    private int DETALLES_DEPORTE_INVIERNO = 2;
+
 
 
     @Override
@@ -48,7 +51,7 @@ public class ListaDeportesInvierno extends AppCompatActivity {
                             final String nombreRaroDeporte = children.getKey();  deporte.setApiKey(nombreRaroDeporte);
                             //final String foto = dataSnapshot.child("foto").getValue().toString(); deporte.setFoto(foto);
                             final StorageReference fStorage = FirebaseStorage.getInstance().getReference();
-                            final ListaDeportesAdapter deportesAdapter = new ListaDeportesAdapter(listaDeportes, ListaDeportesInvierno.this,fStorage);
+                            final ListaDeportesAdapter deportesAdapter = new ListaDeportesAdapter(listaDeportes, ListaDeportesInvierno.this,fStorage,DETALLES_DEPORTE_INVIERNO);
 
                             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
                             recyclerView.setAdapter(deportesAdapter);
@@ -74,4 +77,8 @@ public class ListaDeportesInvierno extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbarusuario,menu);
+        return true;  }
 }

@@ -6,7 +6,25 @@ public class DeporteDto {
     private String nombre;
     private String descripcion;
     private String foto;
+    private String foto1;
+    private String foto2;
     private NoticiaDto[] listaNoticias;
+
+    public String getFoto1() {
+        return foto1;
+    }
+
+    public void setFoto1(String foto1) {
+        this.foto1 = foto1;
+    }
+
+    public String getFoto2() {
+        return foto2;
+    }
+
+    public void setFoto2(String foto2) {
+        this.foto2 = foto2;
+    }
 
     public String getApiKey() {
         return apiKey;

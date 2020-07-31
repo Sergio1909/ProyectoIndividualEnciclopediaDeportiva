@@ -16,35 +16,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.enciclopediadeportiva.Entidades.DeporteDto;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
 
 public class ListaDeportesAdapter extends RecyclerView.Adapter<ListaDeportesAdapter.DeporteViewHolder> {
     DeporteDto[] listaDeportes;
     private Context contexto;
     private StorageReference storageReference;
+    private int condicionDetalles;
 
 
-    public ListaDeportesAdapter(DeporteDto[] lista, Context contexto,StorageReference storageReference) {
+    public ListaDeportesAdapter(DeporteDto[] lista, Context contexto,StorageReference storageReference, int condicionDetalles) {
         this.listaDeportes = lista;
         this.contexto = contexto;
         this.storageReference=storageReference;
+        this.condicionDetalles=condicionDetalles;
     }
 
     public static class DeporteViewHolder extends RecyclerView.ViewHolder {
         public TextView nombreDeporte;
         public ImageView fotoDeporte;
+        public Button  buttonInfo;
 
 
         public DeporteViewHolder(@NonNull View itemView) {
             super(itemView);
             this.nombreDeporte = itemView.findViewById(R.id.nombre_deporte);
-            this.fotoDeporte = itemView.findViewById(R.id.foto_deporte); }}
+            this.fotoDeporte = itemView.findViewById(R.id.foto_deporte);
+            this.buttonInfo = itemView.findViewById(R.id.btnInfo);
+        }}
 
 
     @NonNull
@@ -60,8 +60,24 @@ public class ListaDeportesAdapter extends RecyclerView.Adapter<ListaDeportesAdap
         final DeporteDto deporte = listaDeportes[position];
         final String nombreDeporte = deporte.getNombre();holder.nombreDeporte.setText(nombreDeporte);
         publicarImagen(deporte.getFoto() + ".png", holder);
-
-
+        if (condicionDetalles == 1) {
+            holder.buttonInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(contexto, DetallesDeporteVerano.class);
+                    String APIKEY = deporte.getApiKey();
+                    intent.putExtra("nombreDeporte", APIKEY);
+                    contexto.startActivity(intent);}
+            }); }
+        if (condicionDetalles == 2) {
+            holder.buttonInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(contexto, DetallesDeporteInvierno.class);
+                    String APIKEY = deporte.getApiKey();
+                    intent.putExtra("nombreDeporte", APIKEY);
+                    contexto.startActivity(intent);}
+            }); }
 
     }
     public void publicarImagen (final String photoName, final DeporteViewHolder holder){

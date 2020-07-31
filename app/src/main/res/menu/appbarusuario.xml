@@ -3,10 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:background="@android:color/transparent"
+        android:icon="@mipmap/ic_olympic_games_round"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
-        android:icon="@mipmap/ic_olympic_games_foreground"
+        android:background="@android:color/transparent"
+        android:icon="@mipmap/ic_sol_round"
+        android:title="Item"
+        app:showAsAction="ifRoom" />
+    <item
+        android:background="@android:color/transparent"
+        android:icon="@mipmap/ic_copo_round"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
