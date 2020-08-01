@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.enciclopediadeportiva.Entidades.DeporteDto;
@@ -80,4 +82,27 @@ public class ListaDeportesVerano extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.appbarusuario,menu);
         return true;  }
+
+    public boolean onCreateOptionsMenu(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(ListaDeportesVerano.this, MainActivity.class));
+                return true;
+            case R.id.winter:
+                startActivity(new Intent(ListaDeportesVerano.this, ListaDeportesInvierno.class));
+                return true;
+            case R.id.summer:
+                startActivity(new Intent(ListaDeportesVerano.this, ListaDeportesVerano.class));
+                return true;
+
+                case R.id.olympics:
+                startActivity(new Intent(ListaDeportesVerano.this, InicioActivity.class));
+                return true;
+
+
+        }
+        return onOptionsItemSelected(item);
+    }
 }

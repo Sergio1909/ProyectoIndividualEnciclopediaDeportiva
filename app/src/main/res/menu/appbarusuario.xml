@@ -3,21 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/olympics"
         android:background="@android:color/transparent"
         android:icon="@mipmap/ic_olympic_games_round"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/summer"
         android:background="@android:color/transparent"
         android:icon="@mipmap/ic_sol_round"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/winter"
         android:background="@android:color/transparent"
         android:icon="@mipmap/ic_copo_round"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/logout"
         android:icon="@android:drawable/ic_lock_power_off"
         android:title="Item"
         app:showAsAction="ifRoom" />
