@@ -87,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 Log.d("infoApp","inicio de sesion exitoso");
 
-                //Detectar rol
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();
-                Intent intent = new Intent(this, ListaDeportesVerano.class);
+                Intent intent = new Intent(this, InicioActivity.class);
                 startActivity(intent);
 
                 };

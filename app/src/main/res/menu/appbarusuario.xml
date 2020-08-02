@@ -5,19 +5,19 @@
     <item
         android:id="@+id/olympics"
         android:background="@android:color/transparent"
-        android:icon="@mipmap/ic_olympic_games_round"
+        android:icon="@drawable/arosfinal"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/summer"
         android:background="@android:color/transparent"
-        android:icon="@mipmap/ic_sol_round"
+        android:icon="@drawable/solverano"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/winter"
         android:background="@android:color/transparent"
-        android:icon="@mipmap/ic_copo_round"
+        android:icon="@drawable/copofinal"
         android:title="Item"
         app:showAsAction="ifRoom" />
     <item

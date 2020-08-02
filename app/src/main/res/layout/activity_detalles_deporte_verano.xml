@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".DetallesDeporteVerano">
 
     <TextView
         android:id="@+id/nombre_deporte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="152dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="48dp"
         android:text="TextView"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/fotoDetalles"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,8 +35,9 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="24dp"
+        android:scrollbars="vertical"
         android:text="TextView"
-        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.714"

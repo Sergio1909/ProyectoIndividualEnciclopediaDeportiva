@@ -33,7 +33,7 @@
         android:id="@+id/textView5"
         android:layout_width="87dp"
         android:layout_height="19dp"
-        android:text="Contrasena"
+        android:text="Contraseña"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.175"
@@ -47,7 +47,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.283"
@@ -61,7 +60,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.328"
@@ -96,13 +94,13 @@
         app:layout_constraintVertical_bias="0.556" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="168dp"
-        android:layout_height="109dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/olimpico"
+        android:id="@+id/imageView"
+        android:layout_width="237dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        app:srcCompat="@drawable/arosfinal" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

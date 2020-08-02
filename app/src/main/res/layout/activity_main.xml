@@ -4,56 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tompresentacion"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btn_dameubi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"
         android:onClick="iniciarSesion"
         android:text="Logueo"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        tools:layout_editor_absoluteY="410dp" />
+        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="116dp"
         android:onClick="abrirRegistrosActivity"
         android:text="@string/registro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/btn_dameubi" />
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="212dp"
-        android:layout_height="373dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="40dp"
-        android:src="@drawable/rio20162"
+        android:id="@+id/imageView6"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-         />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="213dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/olimpico"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-       />
+        app:layout_constraintVertical_bias="0.974"
+        app:srcCompat="@drawable/arosfinal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
