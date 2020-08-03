@@ -5,15 +5,26 @@ public class UsuarioDto {
     private String nombre;
     private String correo;
     private String contrasena;
+    private String rol;
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     private DeporteDto[] listaDeportes;
 
     public UsuarioDto() {
     }
 
-    public UsuarioDto(String nombre, String correo, String contrasena) {
+    public UsuarioDto(String nombre, String correo, String contrasena,String rol) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.rol=rol;
     }
 
     public String getNombre() {

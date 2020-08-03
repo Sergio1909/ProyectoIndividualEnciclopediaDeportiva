@@ -48,6 +48,7 @@ public class RegistroActivity extends AppCompatActivity {
         final String correo = editTextMail.getText().toString().trim();
         final String contrasena = editTextPass.getText().toString().trim();
         final String nombre = editTextName.getText().toString().trim();
+        final String rol = "usuarioED";
 
 
         mAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -55,7 +56,7 @@ public class RegistroActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //Adicion de campos extra
-                    UsuarioDto usuario = new UsuarioDto(nombre,correo,contrasena);
+                    UsuarioDto usuario = new UsuarioDto(nombre,correo,contrasena,rol);
 
 
 

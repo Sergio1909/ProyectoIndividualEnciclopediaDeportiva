@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 
 
+import com.example.enciclopediadeportiva.Entidades.UsuarioDto;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,18 +46,33 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-
     DatabaseReference databaseReference;
-
+    String rol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.setLanguageCode("es-419");
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
+        if(currentUser != null){
+            Log.d("infoApp","Usuario logueado");
+            String email = currentUser.getEmail();
+            String uid = currentUser.getUid();
+            String displayName = currentUser.getDisplayName();
+            boolean emailVerified = currentUser.isEmailVerified();
+
+            Log.d("infoApp","email: " + email);
+            Log.d("infoApp","uid: " + uid);
+            Log.d("infoApp","displayName: " + displayName);
+            Log.d("infoApp","emailVerified: " + emailVerified);
+
+        }else{
+            Log.d("infoApp","Usuario no logueado");
+        }
 
     }
 
@@ -87,15 +103,87 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 Log.d("infoApp","inicio de sesion exitoso");
 
+                FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
+                if(!currentuser.isEmailVerified()){
+                    currentuser.sendEmailVerification().
+                            addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(MainActivity.this,
+                                            "Se le ha enviado un correo para validar su cuenta",
+                                            Toast.LENGTH_SHORT).show();
+                                    Log.d("infoApp","Envio de correo exitoso");
 
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
-                Intent intent = new Intent(this, InicioActivity.class);
-                startActivity(intent);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
 
+                                    Log.d("infoApp","error al enviar el correo");
+
+                                }
+                            });
+
+                }
+                String uid = currentuser.getUid();
+                DatabaseReference referencia2 = databaseReference.child("users").child(uid);
+
+                ValueEventListener listener = new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            UsuarioDto usuario = snapshot.getValue(UsuarioDto.class);
+                            rol = usuario.getRol();
+                            if (rol.equals("usuarioED")){
+                                Intent intent = new Intent(MainActivity.this, InicioActivity.class);
+                                startActivity(intent);
+
+                            } else {
+                                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
                 };
+                if (rol == null){
+                    Log.d("infoApp","Esperando datos");
+                    referencia2.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()){
+                                Log.d("infoApp","existe");
+                                UsuarioDto usuario = snapshot.getValue(UsuarioDto.class);
+                                rol = usuario.getRol();
+                                Log.d("infoApp","rol:" + rol);
+                                if (rol.equals("usuarioED")){
+                                    Intent intent = new Intent(MainActivity.this, InicioActivity.class);
+                                    startActivity(intent);
 
+                                } else {
+                                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            }else{
+                                Log.d("infoApp","no existes");
+                            }
 
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
 
             } else {
 
@@ -104,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
 
 
     public void abrirRegistrosActivity(View view){

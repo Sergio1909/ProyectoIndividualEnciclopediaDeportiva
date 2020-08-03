@@ -37,8 +37,6 @@ public class DetallesDeporteVerano extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_deporte_verano);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         final StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         final String apikeyDeporte = getIntent().getStringExtra("nombreDeporte");
@@ -114,36 +112,7 @@ public class DetallesDeporteVerano extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.appbarusuario, menu);
-        // menu.findItem(R.id.nombreUsuario).setTitle(nombreLogueado);
-        return true;
-    }
 
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.logout:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(DetallesDeporteVerano.this, MainActivity.class));
-                return true;
-            case R.id.winter:
-                startActivity(new Intent(DetallesDeporteVerano.this, ListaDeportesInvierno.class));
-                return true;
-            case R.id.summer:
-                startActivity(new Intent(DetallesDeporteVerano.this, ListaDeportesVerano.class));
-                return true;
-
-            case R.id.olympics:
-                startActivity(new Intent(DetallesDeporteVerano.this, InicioActivity.class));
-                return true;
-
-
-        }
-
-        return onOptionsItemSelected(item);
-    }
 }
 
 
