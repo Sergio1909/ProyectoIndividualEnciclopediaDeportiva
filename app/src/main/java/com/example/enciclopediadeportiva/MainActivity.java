@@ -15,14 +15,17 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 
-import com.example.enciclopediadeportiva.ProfileActivity;
 
-import com.example.enciclopediadeportiva.R;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.io.File;
@@ -42,11 +45,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
+    DatabaseReference databaseReference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
     }
@@ -77,8 +86,17 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == 1){
             if(resultCode == RESULT_OK){
                 Log.d("infoApp","inicio de sesion exitoso");
-                Intent intent = new Intent(this, ProfileActivity.class);
+
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+                Intent intent = new Intent(this, InicioActivity.class);
                 startActivity(intent);
+
+                };
+
+
+
             } else {
 
                 Log.d("infoApp","inicio erroneo");
@@ -86,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-    }
+
 
     public void abrirRegistrosActivity(View view){
 
