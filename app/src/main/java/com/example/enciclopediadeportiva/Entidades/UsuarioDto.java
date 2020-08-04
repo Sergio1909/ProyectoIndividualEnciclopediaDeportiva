@@ -7,6 +7,8 @@ public class UsuarioDto {
     private String contrasena;
     private DeporteDto[] listaDeportes;
 
+
+
     public UsuarioDto() {
     }
 
@@ -14,6 +16,7 @@ public class UsuarioDto {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
+
     }
 
     public String getNombre() {

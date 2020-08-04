@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 
 
+import com.example.enciclopediadeportiva.Entidades.UsuarioDto;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,9 +46,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-
     DatabaseReference databaseReference;
 
 
@@ -72,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
+                        .setLogo(R.drawable.arosfinal)
                         .setAvailableProviders(listaProveedores)
                         .build(),
                 1);
@@ -85,27 +84,33 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == 1){
             if(resultCode == RESULT_OK){
-                Log.d("infoApp","inicio de sesion exitoso");
-
-
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
-                Intent intent = new Intent(this, InicioActivity.class);
-                startActivity(intent);
-
-                };
-
-
-
-            } else {
-
-                Log.d("infoApp","inicio erroneo");
+                Log.d("infoApp","inicio de sesión exitoso!");
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                firebaseAuth.setLanguageCode("es-419");
+                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                if(!currentUser.isEmailVerified()){
+                    currentUser.sendEmailVerification()
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(MainActivity.this,
+                                            "Se le ha enviado un correo para validar su cuenta",
+                                            Toast.LENGTH_SHORT).show();
+                                    Log.d("infoApp","Envío de correo exitoso");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d("infoApp","error al enviar el correo");
+                                }
+                            });
+                }
+            }else{
+                Log.d("infoApp","Inicio erroneo");
             }
-
         }
-
-
-
+    }
     public void abrirRegistrosActivity(View view){
 
         Intent intent = new Intent(this, RegistroActivity.class);

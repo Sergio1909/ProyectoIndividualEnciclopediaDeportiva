@@ -3,6 +3,7 @@ package com.example.enciclopediadeportiva;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     private EditText editTextMail, editTextPass, editTextName;
     private FirebaseAuth mAuth;
+    private Button mRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,23 +52,27 @@ public class RegistroActivity extends AppCompatActivity {
         final String nombre = editTextName.getText().toString().trim();
 
 
+
         mAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     //Adicion de campos extra
-                    UsuarioDto usuario = new UsuarioDto(nombre,correo,contrasena);
+                    UsuarioDto usuarioDto = new UsuarioDto(
+                            nombre,
+                            correo,
+                            contrasena
+                    );
 
 
-
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
-                    databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                    databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(usuarioDto).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
 
                                 Toast.makeText(RegistroActivity.this, getString(R.string.registro), Toast.LENGTH_LONG).show();
-                            }else{
+                            } else {
                                 //Mostrar error
 
                             }
@@ -74,15 +80,13 @@ public class RegistroActivity extends AppCompatActivity {
                     });
 
 
-
-
-                }else{
+                } else {
 
                     Toast.makeText(RegistroActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
 
-            }
 
+            }
         });
 
         Intent intent = new Intent(this,MainActivity.class);
