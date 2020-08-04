@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -16,10 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.enciclopediadeportiva.Entidades.DeporteDto;
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -41,8 +37,6 @@ public class DetallesDeporteVerano extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_deporte_verano);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         final StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         final String apikeyDeporte = getIntent().getStringExtra("nombreDeporte");
@@ -118,37 +112,7 @@ public class DetallesDeporteVerano extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.appbarusuario, menu);
-        // menu.findItem(R.id.nombreUsuario).setTitle(nombreLogueado);
-        return true;
-    }
 
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.logout:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(DetallesDeporteVerano.this, MainActivity.class));
-                return true;
-            case R.id.winter:
-                startActivity(new Intent(DetallesDeporteVerano.this, ListaDeportesInvierno.class));
-                return true;
-            case R.id.summer:
-                startActivity(new Intent(DetallesDeporteVerano.this, ListaDeportesVerano.class));
-                return true;
-
-            case R.id.olympics:
-                startActivity(new Intent(DetallesDeporteVerano.this, InicioActivity.class));
-                return true;
-
-
-        }
-
-        return onOptionsItemSelected(item);
-    }
 }
 
 

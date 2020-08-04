@@ -48,13 +48,39 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.setLanguageCode("es-419");
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
+        if(currentUser != null){
+            Log.d("infoApp","Usuario logueado");
+            String email = currentUser.getEmail();
+            String uid = currentUser.getUid();
+            String displayName = currentUser.getDisplayName();
+            boolean emailVerified = currentUser.isEmailVerified();
+
+            Log.d("infoApp","email: " + email);
+            Log.d("infoApp","uid: " + uid);
+            Log.d("infoApp","displayName: " + displayName);
+            Log.d("infoApp","emailVerified: " + emailVerified);
+
+            boolean v = true;
+            if(emailVerified == v){
+                Intent intent = new Intent(MainActivity.this, InicioActivity.class);
+                startActivity(intent);
+            }else{
+                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+                        startActivity(intent);
+            }
+
+        }else{
+            Log.d("infoApp","Usuario no logueado");
+        }
 
     }
 
@@ -70,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
-                        .setLogo(R.drawable.arosfinal)
                         .setAvailableProviders(listaProveedores)
                         .build(),
                 1);
@@ -106,11 +131,17 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                 }
-            }else{
-                Log.d("infoApp","Inicio erroneo");
+
+            } else {
+
+                Log.d("infoApp","inicio erroneo");
             }
+
         }
+
     }
+
+
     public void abrirRegistrosActivity(View view){
 
         Intent intent = new Intent(this, RegistroActivity.class);

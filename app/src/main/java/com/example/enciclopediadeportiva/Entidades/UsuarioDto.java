@@ -5,9 +5,9 @@ public class UsuarioDto {
     private String nombre;
     private String correo;
     private String contrasena;
+
+
     private DeporteDto[] listaDeportes;
-
-
 
     public UsuarioDto() {
     }

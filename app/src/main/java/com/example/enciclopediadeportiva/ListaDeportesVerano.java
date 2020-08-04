@@ -39,8 +39,6 @@ public class ListaDeportesVerano extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_deportes_verano);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("DEPORTE").child("VERANO").addValueEventListener(new ValueEventListener() {
             @Override
