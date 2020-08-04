@@ -8,6 +8,16 @@ public class DeporteDto {
     private String foto;
     private String foto1;
     private String foto2;
+    private String vysor;
+
+    public String getVysor() {
+        return vysor;
+    }
+
+    public void setVysor(String vysor) {
+        this.vysor = vysor;
+    }
+
     private NoticiaDto[] listaNoticias;
 
     public String getFoto1() {

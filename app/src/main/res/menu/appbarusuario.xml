@@ -6,23 +6,24 @@
         android:id="@+id/olympics"
         android:background="@android:color/transparent"
         android:icon="@drawable/arosfinal"
-        android:title="Item"
+        android:title="Inicio"
         app:showAsAction="ifRoom" />
+    <item android:title="Mis Deportes Favoritos" />
     <item
         android:id="@+id/summer"
         android:background="@android:color/transparent"
         android:icon="@drawable/solverano"
-        android:title="Item"
+        android:title="Deportes Verano"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/winter"
         android:background="@android:color/transparent"
         android:icon="@drawable/copofinal"
-        android:title="Item"
+        android:title="Deportes Invierno"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/logout"
         android:icon="@android:drawable/ic_lock_power_off"
-        android:title="Item"
+        android:title="Cerrar Sesión"
         app:showAsAction="ifRoom" />
 </menu>

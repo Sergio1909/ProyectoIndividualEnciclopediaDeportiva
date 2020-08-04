@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/arosfinal"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InicioActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".MisDeportesFavoritos" />
+        <activity android:name=".InicioActivity" />
         <activity android:name=".DetallesDeporteInvierno" />
         <activity android:name=".DetallesDeporteVerano" />
         <activity android:name=".ListaDeportesVerano" />

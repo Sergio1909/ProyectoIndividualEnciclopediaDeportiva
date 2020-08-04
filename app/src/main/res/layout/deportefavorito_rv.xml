@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/foto_deporte"
+        android:id="@+id/foto_deporte_favorito"
         android:layout_width="160dp"
         android:layout_height="152dp"
         android:layout_marginEnd="20dp"
@@ -23,7 +23,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/nombre_deporte"
+        android:id="@+id/nombre_deporte_favorito"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:layout_marginStart="44dp"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.195" />
 
     <Button
-        android:id="@+id/btnInfo"
+        android:id="@+id/btnInfo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,18 +47,18 @@
         app:layout_constraintTop_toBottomOf="@+id/nombre_deporte" />
 
     <Button
-        android:id="@+id/btnNoticias"
+        android:id="@+id/btnBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="40dp"
-        android:text="NOTICIAS"
+        android:text="Borrar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/foto_deporte"
+        app:layout_constraintEnd_toStartOf="@+id/foto_deporte_favorito"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnInfo"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_deporte"
+        app:layout_constraintStart_toEndOf="@+id/btnInfo2"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_deporte_favorito"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

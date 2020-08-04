@@ -55,7 +55,6 @@ public class ListaDeportesInvierno extends AppCompatActivity {
                         if (dataSnapshot.exists()) {
                             final DeporteDto deporte = children.getValue(DeporteDto.class);
                             final String nombreRaroDeporte = children.getKey();  deporte.setApiKey(nombreRaroDeporte);
-                            //final String foto = dataSnapshot.child("foto").getValue().toString(); deporte.setFoto(foto);
                             final StorageReference fStorage = FirebaseStorage.getInstance().getReference();
                             final ListaDeportesAdapter deportesAdapter = new ListaDeportesAdapter(listaDeportes, ListaDeportesInvierno.this,fStorage,DETALLES_DEPORTE_INVIERNO);
 
