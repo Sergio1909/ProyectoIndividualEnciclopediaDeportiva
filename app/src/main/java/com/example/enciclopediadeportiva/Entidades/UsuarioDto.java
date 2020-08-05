@@ -20,10 +20,9 @@ public class UsuarioDto {
     public UsuarioDto() {
     }
 
-    public UsuarioDto(String nombre, String correo, String contrasena, String rol) {
+    public UsuarioDto(String nombre, String correo,  String rol) {
         this.nombre = nombre;
         this.correo = correo;
-        this.contrasena = contrasena;
         this.rol=rol;
 
     }

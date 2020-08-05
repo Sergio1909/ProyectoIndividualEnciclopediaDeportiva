@@ -76,7 +76,6 @@ public class RegistroActivity extends AppCompatActivity {
                                     usuario = new UsuarioDto(
                                             nombre,
                                             correo,
-                                            contrasena,
                                             rol
                                     );
                                     Log.d("InfoApp","A punto de iniciar el listener de DB...");

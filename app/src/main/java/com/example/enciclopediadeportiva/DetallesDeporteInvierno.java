@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +62,16 @@ public class DetallesDeporteInvierno extends AppCompatActivity {
                             publicarImagen2(deporteDto.getFoto1() + ".png", storageReference);
                             publicarImagen3(deporteDto.getFoto2() + ".png", storageReference);
 
+                            Button botonRegresar = findViewById(R.id.buttonRegresar);
+                            botonRegresar.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Intent intent = new Intent(DetallesDeporteInvierno.this,ListaDeportesInvierno.class);
+                                    startActivity(intent);
+
+                                }
+                            });
 
 
 

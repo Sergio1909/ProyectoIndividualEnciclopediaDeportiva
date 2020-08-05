@@ -8,7 +8,6 @@
         android:icon="@drawable/arosfinal"
         android:title="Inicio"
         app:showAsAction="ifRoom" />
-    <item android:title="Mis Deportes Favoritos" />
     <item
         android:id="@+id/summer"
         android:background="@android:color/transparent"
