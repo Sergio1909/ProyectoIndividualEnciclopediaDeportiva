@@ -1,7 +1,7 @@
 package com.example.enciclopediadeportiva.Entidades;
 
 public class NoticiaDto {
-
+    //Este iba a ser la clase para poder obtener la noticia
     private String nombre;
     private String descripcion;
     private String foto;

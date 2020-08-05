@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 
 public class MisDeportesFavoritosAdapter extends RecyclerView.Adapter<MisDeportesFavoritosAdapter.DeporteFavoritoViewHolder> {
+    //Aqui se iba a realizarse el adaptador para la recoleccion de deportes favoritos
     DeporteDto[] listaDeportes;
     private Context contexto;
     private DatabaseReference databaseReference;

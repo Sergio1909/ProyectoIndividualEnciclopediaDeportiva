@@ -24,7 +24,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class MisDeportesFavoritos extends AppCompatActivity {
-
+//Aqui se implemetaria la seccion de los deportes favoritos por usuarios
     DeporteDto[] listaMisDeportesFavoritos;
     int x = 0; int CONDICION = 2;
 
