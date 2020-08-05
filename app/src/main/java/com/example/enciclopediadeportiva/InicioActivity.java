@@ -33,6 +33,8 @@ public class InicioActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(InicioActivity.this, ListaDeportesVerano.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
 
             }
@@ -42,10 +44,20 @@ public class InicioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InicioActivity.this, ListaDeportesInvierno.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(intent);
 
             }
         });
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent =new Intent(InicioActivity.this,InicioActivity.class);
+        startActivity(intent);
+        finish();
 
     }
     @Override

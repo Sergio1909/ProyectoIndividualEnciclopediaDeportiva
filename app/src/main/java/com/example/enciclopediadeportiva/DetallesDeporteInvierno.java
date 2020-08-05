@@ -68,7 +68,10 @@ public class DetallesDeporteInvierno extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Intent intent = new Intent(DetallesDeporteInvierno.this,ListaDeportesInvierno.class);
+
                                     startActivity(intent);
+
+
 
                                 }
                             });
@@ -83,6 +86,12 @@ public class DetallesDeporteInvierno extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(DetallesDeporteInvierno.this,"Error Base de Datos",Toast.LENGTH_LONG).show(); }
                 });
+
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
 
     }

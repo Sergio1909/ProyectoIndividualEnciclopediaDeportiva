@@ -68,7 +68,9 @@ public class DetallesDeporteVerano extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Intent intent = new Intent(DetallesDeporteVerano.this,ListaDeportesVerano.class);
+
                                     startActivity(intent);
+
 
                                 }
                             });
@@ -84,6 +86,11 @@ public class DetallesDeporteVerano extends AppCompatActivity {
                 });
 
 
+    }@Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        this.finish();
     }
 
     // Agregar Fotografía

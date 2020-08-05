@@ -31,9 +31,10 @@ public class RegistroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
 
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_registro);
         editTextMail = findViewById(R.id.editTextTextPersonName);
         editTextPass = findViewById(R.id.editTextTextPersonName2);
         editTextName = findViewById(R.id.editTextTextPersonName3);
@@ -87,6 +88,7 @@ public class RegistroActivity extends AppCompatActivity {
                                                 Toast.makeText(RegistroActivity.this, "Registrado exitosamente, verifique su correo", Toast.LENGTH_LONG).show();
                                                 progressDialog.dismiss();
                                                 Intent intent = new Intent(RegistroActivity.this,MainActivity.class);
+
                                                 startActivity(intent);
 
                                             } else {
@@ -126,5 +128,11 @@ public class RegistroActivity extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //codigo adicional
+        this.finish();
     }
 }

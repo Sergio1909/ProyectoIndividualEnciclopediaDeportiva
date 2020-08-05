@@ -85,12 +85,16 @@ public class LoginActivity extends AppCompatActivity {
                                                 Log.d("infoApp", "rol:" + rol);
                                                 if (rol.equals("UsuarioED")) {
                                                     Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
+
                                                     startActivity(intent);
+
 
                                                 } else {
                                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                                                     startActivity(intent);
-                                                }
+
+                                            }
                                             } else {
                                                 Log.d("infoApp", "no existes");
                                             }
@@ -123,7 +127,12 @@ public class LoginActivity extends AppCompatActivity {
                 });
         // [END sign_in_with_email]
     }
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //codigo adicional
+        this.finish();
+    }
 
 
 

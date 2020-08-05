@@ -83,6 +83,12 @@ public class ListaDeportesVerano extends AppCompatActivity {
         });
     }
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        this.finish();
+    }
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.appbarusuario,menu);
         return true;  }

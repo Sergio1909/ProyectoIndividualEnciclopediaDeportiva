@@ -2,6 +2,7 @@ package com.example.enciclopediadeportiva;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -45,12 +46,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
+
     DatabaseReference databaseReference;
     String rol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -91,9 +94,11 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent = new Intent(MainActivity.this, InicioActivity.class);
                                     startActivity(intent);
 
+
                                 } else {
                                     Intent intent = new Intent(MainActivity.this, MainActivity.class);
                                     startActivity(intent);
+
                                 }
                             }else{
                                 Log.d("infoApp","no existes");
@@ -130,7 +135,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent =new Intent(MainActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
 
+    }
 
 
 }
